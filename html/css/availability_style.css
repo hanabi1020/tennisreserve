@@ -1,0 +1,32 @@
+ 
+         a {
+            text-decoration:none;
+            width:150px;
+            display:inline-block; /*送信とリセットを横並び*/
+            font-size:16px;
+            text-align:center;
+           
+            border-radius: 50px;
+            background:#CCCCCC	; /*ボタンのカラー（背景色）*/
+            color:#000000;/*ボタンのフォントカラー*/
+            line-height:1em;
+            border:none;
+           
+	        text-indent:-1em;
+            }   
+        a:hover {/*マウスを合わせた時の処理（hover）*/
+            color:#AAAAAA;
+            background:#AAAAAA;
+            }
+       #tblmembers {
+          display: flex;
+          justify-content: space-around;
+            }
+        #tblmembers > div {
+          width: 30%;
+            }
+        table {
+  
+          width: 100%;
+            }
+       
