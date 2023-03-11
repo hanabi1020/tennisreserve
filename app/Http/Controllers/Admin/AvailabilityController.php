@@ -26,11 +26,9 @@ class AvailabilityController extends Controller
       ];
       $reserve->fill($form);
       $reserve->save();
+      
       return redirect('admin/mypage');
   }
-    public function delete(Request $request)
-  {
-      return redirect('admin/mypage');
-  }
+   
 
 }

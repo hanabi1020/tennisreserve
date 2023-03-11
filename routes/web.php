@@ -22,11 +22,15 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('top/signup', 'Admin\TopController@signup')->middleware('auth');
     
     Route::get('availability', 'Admin\AvailabilityController@index')->middleware('auth');
+    Route::post('availability', 'Admin\AvailabilityController@index')->middleware('auth');
     Route::get('availability/delete', 'Admin\AvailabilityController@delete')->middleware('auth');
+    Route::post('availability/delete', 'Admin\AvailabilityController@delete')->middleware('auth');
+    Route::get('availability/add', 'Admin\AvailabilityController@add')->middleware('auth');
     Route::post('availability/add', 'Admin\AvailabilityController@add')->middleware('auth');
     
     Route::get('mypage', 'Admin\MypageController@index')->middleware('auth');
     Route::get('mypage/add', 'Admin\MypageController@add')->middleware('auth');
+    Route::get('mypage/delete', 'Admin\MypageController@delete')->middleware('auth');
     
     // Route::get('signup', 'Admin\SignupController@index')->middleware('auth');
     // Route::get('signup/signup', 'Admin\SignupController@signup')->middleware('auth');

@@ -80,6 +80,10 @@ for ( $day = 1; $day <= $day_count; $day++, $youbi++) {
     }
 }
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -88,26 +92,28 @@ for ( $day = 1; $day <= $day_count; $day++, $youbi++) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tennisreserve</title>
     <link rel="stylesheet" href="css/mypage_style.css">
+    <div class="container">
     
     <div id="page">
     <h2>マイページ</h2>
+     
     
-    <h2>予約状況</h2>
-    <form action="{{ action('Admin\AvailabilityController@add') }}" method="post">
-       <div class="box">
+    <?php
+if(isset($_POST["reserves"])) {
+  // セレクトボックスで選択された値を受け取る
+  $reserves = $_POST["reserves"];
+
+  // 受け取った値を画面に出力
+  echo $reserves;
+}
+?>
+         
            
-           <?php
-            $reserve= $_post["reserve_time"];
-            echo $reserve;
-            ?>
-       <!--           @foreach( $reserve as $form)-->
-       <!--                         <tr>-->
-       <!--                             <th>{{ $reserve->id }}</th>-->
-       <!--                         </tr>-->
-       <!--                     @endforeach-->
-       <!--</div>                  -->
-    <p>施設</p>
-    <p>日程</p>
+                  @foreach( $reserves as $reserve )
+                                <tr>
+                                    <th>{{ $reserve->reserve_time }}</th>
+                                </tr>
+                  @endforeach
     
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -163,13 +169,9 @@ for ( $day = 1; $day <= $day_count; $day++, $youbi++) {
     
     <h2>注意事項</h2>
     <ul>
-    <li>10:00~18:00</li>
-    <li>予約は一つまで</li>
-    <li>予定変更の場合は新しく予約してください</li>
-</ul>
+        <li>10:00~18:00の間の1時間を予約してください</li>
+    </ul>
 </div>
-        <div>
-            <a href="{{ action('Admin\MypageController@add') }}">空き状況へ</a>
-        </div>
+       
 </body>
 </html>
